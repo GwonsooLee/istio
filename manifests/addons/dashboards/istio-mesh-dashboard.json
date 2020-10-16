@@ -421,7 +421,19 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "max(pilot_k8s_cfg_events{type=\"VirtualService\", event=\"add\"}) - (max(pilot_k8s_cfg_events{type=\"VirtualService\", event=\"delete\"}) or max(up * 0))",
+          "expr": "max(pilot_k8s_cfg_events{type=\"PeerAuthentication\", event=\"add\"}) - (max(pilot_k8s_cfg_events{type=\"PeerAuthentication\", event=\"delete\"}) or max(up * 0))",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        },
+        {
+          "expr": "max(pilot_k8s_cfg_events{type=\"RequestAuthentication\", event=\"add\"}) - (max(pilot_k8s_cfg_events{type=\"RequestAuthentication\", event=\"delete\"}) or max(up * 0))",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        },
+        {
+          "expr": "max(pilot_k8s_cfg_events{type=\"AuthorizationPolicy\", event=\"add\"}) - (max(pilot_k8s_cfg_events{type=\"AuthorizationPolicy\", event=\"delete\"}) or max(up * 0))",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
